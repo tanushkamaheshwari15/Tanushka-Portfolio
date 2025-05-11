@@ -57,6 +57,29 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
+// dark/light theme toggler
+let darkModeIcon = document.querySelector('#darkMode-icon');
+
+// Check for saved mode
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+    darkModeIcon.classList.replace('bx-sun', 'bx-moon');
+}
+
+darkModeIcon.onclick = () => {
+    document.body.classList.toggle('light-mode');
+
+    if (document.body.classList.contains('light-mode')) {
+        darkModeIcon.classList.replace('bx-sun', 'bx-moon');
+        localStorage.setItem('theme', 'light');
+    } else {
+        darkModeIcon.classList.replace('bx-moon', 'bx-sun');
+        localStorage.setItem('theme', 'dark');
+    }
+};
+
+
+
 
 
 
